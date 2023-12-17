@@ -1,0 +1,42 @@
+package Hambbang;
+
+import java.util.*;
+
+public class RSP {
+	static String rsp(int player) {
+		switch (player) {
+		case 1:
+			return "가위";
+		case 2:
+			return "바위";
+		case 3:
+			return "보";
+		}
+		return "error";
+
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int player, computer;
+		System.out.println("**********가위/바위/보 게임**********");
+		System.out.println("1:가위, 2:바위, 3:보");
+		System.out.print("숫자를 입력하세요 -> ");
+		while (true) {
+			player = sc.nextInt();
+			if (player == 1 || player == 2 || player == 3)
+				break;
+			System.out.println("다시 입력하십시오");
+		}
+		System.out.println("당신은 " + rsp(player) + "을 냈습니다.");
+		computer = (int) (Math.random() * 3 + 1);
+		System.out.println("컴퓨터가 낸 것은 : " + rsp(computer));
+		if (computer > player || (computer == 1 && player == 3))
+			System.out.println("컴퓨터가 이겼습니다.");
+		else if (computer == player)
+			System.out.println("컴퓨터와 비겼습니다.");
+		else
+			System.out.println("플레이어가 이겼습니다.");
+	}
+
+}
